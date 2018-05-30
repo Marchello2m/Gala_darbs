@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+.header{
+		display:flex;
+		
+		padding: 10px 20px 10px 20px;
+		
+}
+.navigation{
+	text-transform:uppercase;
+	flex:3;
+
+	display:flex;
+	padding:0px;
+	margin:0px;
+}.navigation li {
+	
+	list-style-type: none;
+	flex:3;
+	text-align:center;
+}
+
+.site-info-navigation {
+	
+	display:block !important;
+	flex:2;
+
+	
+}.site-info-navigation li{
+	
+	display:inline-block !important;
+	flex: 3;
+
+	
+}.navigation a{
+	
+	text-decoration:none;
+	color:darkblue;
+}.navigation a:link{
+	
+	color:yellow;
+	
+}.navigation a:visited{
+	
+	color:orange;
+}.navigation a:hover{
+	
+
+	
+	color:blue;
+}.navigation a:active{
+	
+	color:red;
+}
+#logo{
+	/*border:1px solid red;*/
+	height:60px;
+}
+#site-title{
+	font-size:20px;
+}
+body{body {
+    background: no-repeat;
+   
+}
+
+}
+

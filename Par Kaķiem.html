@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style type="text/css">
+  	 .kepa{
+  	 	cursor:pointer;
+  		
+    position: absolute;
+    top: 5px;
+    /*bottom: -30px;*/
+    right: 80%;
+    transform: rotate(90deg);
+
+  }	 
+
+  </style>
+  <meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="">
+<a class="link" href="KaķuLapa.html " target="_self">Home</a> 
+<h1>Kaķu Spaidīšana</h1>
+<p>Spaidot kaķa kāju pelni naudu</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+	<h3>Njaudinja: <span id="money">0</span> <br> Ņaudiņa ++ Klikam:  <span id="moneyPerSecond">0</span><br /> 
+		
+  </head>
+  <body  background="http://www.stickpng.com/assets/images/58b061138a4b5bbbc8492951.png"displey:flex>
+	<h3>Kakju Uzlabojumi</h3>
+	<p>Uzlabojums Klikšķim: <span id="clickUpgradeCost">100</span> <button onclick="buyClickUpgrade()"> Nopirkt Upgreidu Klickam </button>
+	<p><button onclick="pirktTati()">Kakju tantes pirkums palielina klikškji par +0,1</button> Maksā: <span id="beginnerCost">10</span></p>
+	<p><button onclick="pirktKasti()">Kakju kaste +5</button> Maksā: <span id="kasteCost">50</span></p>
+	<img src="https://pawsiq.com/wp-content/themes/pawsiq/assets/img/paw.png" onclick="moneyClick()" class="kepa" >
+
+	<!-- <img src="<a href="https://imgbb.com/"><img src="https://image.ibb.co/hMv7Sd/kakjaseja.png" alt="kakjaseja" onclick="moneyClick()" class="kepa" >
+ -->
+
+
+  </body>
+</html>
+	
+
+<script>
+var money = 0;
+var beginner = 0;
+var mpc = 1;
+var moneyPerSecond = 0;
+var clicks = 0;
+var kaste =0;
+setInterval
+
+function moneyClick(){
+money += mpc;
+clicks += 1;
+document.getElementById("money").innerHTML = prettify(money);
+}
+
+function mps(){
+	money += moneyPerSecond;
+	document.getElementById('money').innerHTML = prettify(money);
+	document.getElementById('moneyPerSecond').innerHTML = prettify(moneyPerSecond);
+}
+
+function buyClickUpgrade(){
+	var clickUpgradeCost = Math.floor(100 * Math.pow(1.0, mpc));
+	if (money >= clickUpgradeCost){
+		mpc++;
+		beginner += 0.1;
+		moneyPerSecond += 0.1;
+		money -= clickUpgradeCost;
+		document.getElementById('clickUpgradeCost').innerHTML = clickUpgradeCost;
+	}
+	var nextCost = Math.floor(100 * Math.pow(1.2, mpc));
+	document.getElementById('clickUpgradeCost').innerHTML = nextCost;
+}
+
+function pirktTati(){
+	var beginnerCost = Math.floor(10 * Math.pow(1.1, beginner));
+	if (money >= beginnerCost){
+		beginner += 0.1;
+		moneyPerSecond += 0.1;
+		money -= beginnerCost;
+		document.getElementById('money').innerHTML = prettify(money);
+		document.getElementById('moneyPerSecond').innerHTML = prettify(moneyPerSecond);
+	}
+	var nextCost = Math.floor(10 * Math.pow(3.2, beginner));
+	document.getElementById('beginnerCost').innerHTML = prettify(nextCost);
+}
+function pirktKasti(){
+	var kasteCost = Math.floor(50* Math.pow(1.1, kaste));
+	if (money >= kasteCost){
+		kaste += 1;
+		mpc += 5;
+		money -= kasteCost;
+		moneyPerSecond += 0.4;
+		document.getElementById('money').innerHTML = prettify(money);
+		document.getElementById('moneyPerSecond').innerHTML = prettify(moneyPerSecond);
+	}
+	var nextCost = Math.floor(50 * Math.pow(3.2, kaste));
+	document.getElementById('kasteCost').innerHTML = prettify(nextCost);
+}
+
+
+
+function prettify(input){
+	var output = Math.round(input * 1000000)/ 1000000;
+	return output;
+
+}
+
+
+
+
+setInterval(function(){
+	money+=moneyPerSecond;
+	console.log(1);
+
+document.getElementById("money").innerHTML = prettify(money);
+}, 1000);
+
+</script>
